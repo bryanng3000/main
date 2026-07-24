@@ -20,10 +20,10 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 
 		<style>
-			#top .profile-photo {
+		#top .profile-photo {
 				display: block;
 				width: 100%;
-				max-width: 320px;
+				max-width: 260px;
 				margin: 0 auto;
 			}
 			
@@ -32,9 +32,12 @@
 				width: 100%;
 				height: auto;
 				aspect-ratio: 1 / 1;
-				object-fit: cover;
-				object-position: center 20%;
+				object-fit: contain;
+				object-position: center;
 				border-radius: 50%;
+				background: #f5f5f5;
+				padding: 8px;
+				box-sizing: border-box;
 			}
 			
 			#top .hero-copy h1 {
@@ -51,7 +54,7 @@
 				}
 			
 				#top .profile-photo {
-					max-width: 240px;
+					max-width: 210px;
 					margin: 0 auto 40px auto;
 				}
 			
@@ -85,7 +88,7 @@
 			@media screen and (max-width: 736px) {
 			
 				#top .profile-photo {
-					max-width: 210px;
+					max-width: 170px;
 					margin-bottom: 32px;
 				}
 			
