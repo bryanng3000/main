@@ -68,7 +68,7 @@ window.BRYAN_CONFIG = {
     {
       "en": "Xiaohongshu",
       "zh": "小红书",
-      "url": "",
+      "url": "https://www.rednote.com/user/profile/609bb637000000000101c516",
       "id": "xiaohongshu"
     },
     {
