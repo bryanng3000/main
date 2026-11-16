@@ -587,7 +587,9 @@ window.BRYAN_COPY = {
     "resumePartners": "Resume scrolling",
     "workSolutionsKicker": "Find your approach",
     "workSolutionsTitle": "Which direction fits your project?",
-    "faqNav": "FAQ"
+    "faqNav": "FAQ",
+    "aboutMirrorCaption": "Behind the camera.",
+    "aboutTramCaption": "On the move, camera in hand."
   },
   "zh": {
     "skip": "跳至正文",
@@ -858,7 +860,9 @@ window.BRYAN_COPY = {
     "resumePartners": "继续滚动",
     "workSolutionsKicker": "合作方式",
     "workSolutionsTitle": "想聊哪一种合作？",
-    "faqNav": "常见问题"
+    "faqNav": "常见问题",
+    "aboutMirrorCaption": "镜头背后的我。",
+    "aboutTramCaption": "带着相机，记录沿途的见闻。"
   }
 };
 
