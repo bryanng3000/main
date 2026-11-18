@@ -7,7 +7,8 @@ window.BRYAN_CONFIG = {
       "en": "A Malaysian lawyer. A new beginning in Hong Kong.",
       "zh": "马来西亚律师的真实一天：独自来到香港创业",
       "typeEn": "Meeting Malaysia · Documentary",
-      "typeZh": "人间马来西亚 · 人物纪录片"
+      "typeZh": "人间马来西亚 · 人物纪录片",
+      "bilibiliId": "BV1SVJ16fEg3"
     },
     {
       "id": "cFNUXOzF8o8",
@@ -15,7 +16,8 @@ window.BRYAN_CONFIG = {
       "en": "A Malaysian programmer building a business in China.",
       "zh": "创业还没成功，就不算失败？｜在中国创业的大马程序员的一天",
       "typeEn": "Meeting Malaysia · Documentary",
-      "typeZh": "人间马来西亚 · 人物纪录片"
+      "typeZh": "人间马来西亚 · 人物纪录片",
+      "bilibiliId": "BV1dZsu6DE69"
     },
     {
       "id": "kB9ajFAxLaw",
@@ -23,7 +25,8 @@ window.BRYAN_CONFIG = {
       "en": "Can Malaysians afford to retire?",
       "zh": "马来西亚人，真的够钱退休吗？",
       "typeEn": "Decoding Malaysia · Retirement & everyday finances",
-      "typeZh": "漫聊马来西亚 · 退休与生活经济"
+      "typeZh": "漫聊马来西亚 · 退休与生活经济",
+      "bilibiliId": "BV1rFtU6yENt"
     },
     {
       "id": "9E874nT2Ggc",
@@ -31,7 +34,8 @@ window.BRYAN_CONFIG = {
       "en": "Why does Malaysia have such a sweet tooth?",
       "zh": "为什么马来西亚人的食物那么甜？",
       "typeEn": "Decoding Malaysia · Society & everyday life",
-      "typeZh": "漫聊马来西亚 · 社会与日常生活"
+      "typeZh": "漫聊马来西亚 · 社会与日常生活",
+      "bilibiliId": "BV1YpxB6wEAy"
     },
     {
       "id": "CP6NEL7REYQ",
@@ -39,7 +43,8 @@ window.BRYAN_CONFIG = {
       "en": "Malaysia’s semiconductor moment: 50 years in the making.",
       "zh": "做了50年芯片，马来西亚终于等到机会了？",
       "typeEn": "Decoding Malaysia · Business & economics",
-      "typeZh": "漫聊马来西亚 · 商业与经济"
+      "typeZh": "漫聊马来西亚 · 商业与经济",
+      "bilibiliId": "BV1YJ4g6WE6a"
     }
   ],
   "socials": [
@@ -219,7 +224,10 @@ window.BRYAN_CONFIG = {
           "igPrice": "聊聊合作方式",
           "finderIntro": "回答几个简单问题，看看人物纪录片、专题解说或短视频，哪一种更适合您的需求。做完后可以把想法发给我，我们再一起讨论。",
           "contactAside": "人物纪录片、专题解说\n与短视频合作。",
-          "footerLine": "人物纪录片 · 专题解说 · 品牌合作"
+          "footerLine": "人物纪录片 · 专题解说 · 品牌合作",
+          "watchPlatform": "在哔哩哔哩观看 ↗",
+          "watchFilm": "在哔哩哔哩观看",
+          "bilibiliProfileHint": "可以前往哔哩哔哩主页查看更多作品。"
         },
         "en": {
           "docPrice": "Discuss your project",
@@ -249,7 +257,10 @@ window.BRYAN_CONFIG = {
           "igPrice": "Explore a collaboration",
           "finderIntro": "Answer a few questions to explore whether a documentary, explainer or short video could meet your needs. You can edit the message and send it to me afterwards.",
           "contactAside": "Documentaries, explainers\nand short-form collaborations.",
-          "footerLine": "Documentaries · Explainers · Brand collaborations"
+          "footerLine": "Documentaries · Explainers · Brand collaborations",
+          "watchPlatform": "Watch on Bilibili ↗",
+          "watchFilm": "Watch on Bilibili",
+          "bilibiliProfileHint": "Explore more films on my Bilibili profile."
         }
       },
       "socialIds": [
@@ -332,7 +343,7 @@ window.BRYAN_COPY = {
     "navWork": "Work",
     "navAbout": "About",
     "navServices": "Collaborate",
-    "navFinder": "Project finder",
+    "navFinder": "Not sure what you need?",
     "letsTalk": "Let’s talk ↗",
     "heroKicker": "CONTENT CREATOR",
     "heroLine1": "Hello,",
@@ -384,7 +395,7 @@ window.BRYAN_COPY = {
     "partnersKicker": "Clients",
     "partnersTitle": "Brand collaborations",
     "partnersNote": "Selected brand collaborations will appear here once the project details and logo permissions are confirmed.",
-    "finderKicker": "Project finder",
+    "finderKicker": "Find your starting point",
     "finderTitle": "An idea.",
     "finderTitle2": "Not quite a brief?",
     "finderIntro": "You don’t need to know which kind of video to ask for. Tell me what you’re trying to achieve, and we’ll find a useful place to start.",
@@ -407,11 +418,10 @@ window.BRYAN_COPY = {
     "contactIntro": "Tell me about your business, who you want to reach, and what you want them to understand. We can discuss a suitable format and production scope.",
     "emailMe": "Email me",
     "contactAside": "Documentaries, explainers\nand brand content.",
-    "takeFinder": "Or take the project finder first ↗",
+    "takeFinder": "Explore the options that fit your needs ↗",
     "footerLine": "Documentaries · Explainers · Brand collaborations",
     "footerDraft": "Kuala Lumpur · Shanghai",
     "backTop": "Back to top ↑",
-    "watchYouTube": "Watch on YouTube ↗",
     "questionHint": "Choose the answer closest to where you are now.",
     "previous": "← Back",
     "next": "Next question →",
@@ -526,7 +536,7 @@ window.BRYAN_COPY = {
     "homeIntro": "Introduce the people behind your business, explain a product or bring a launch to your audience. I develop and produce content around what you want people to understand.",
     "homePrimary": "Explore solutions",
     "homeSecondary": "Discuss a project",
-    "homeUnsure": "Not sure where to start? Try the 3-minute project finder",
+    "homeUnsure": "Unsure what to make? Start with five questions",
     "solutionsKicker": "Start with your goal",
     "solutionsTitle": "What do you need",
     "solutionsTitle2": "your audience to understand?",
@@ -548,7 +558,7 @@ window.BRYAN_COPY = {
     "homeAboutBody": "Meet Bryan and learn how a STEM background informs the way I research, structure and explain a subject.",
     "homeFinderTitle": "Still exploring your options?",
     "homeFinderBody": "Five questions will help you clarify your audience, goals and available material, with a suggested direction to discuss.",
-    "homeFinderCTA": "Try the project finder",
+    "homeFinderCTA": "Get a recommendation",
     "homeContactTitle": "Already have a project in mind?",
     "homeContactBody": "Share what you do, where you want to film and your approximate timeline. We can take it from there.",
     "homeContactCTA": "Get in touch",
@@ -584,7 +594,7 @@ window.BRYAN_COPY = {
     "workPageTitle": "Work",
     "aboutPageTitle": "About",
     "clientsPageTitle": "Clients",
-    "finderPageTitle": "Project finder",
+    "finderPageTitle": "Find the right content",
     "contactPageTitle": "Contact",
     "contactTemplateTitle": "A useful starting point",
     "contactTemplate": "Tell me about your business, the problem you want to address, your filming location and approximate timing. Reference videos or existing material are welcome.",
@@ -600,7 +610,8 @@ window.BRYAN_COPY = {
     "aboutTramCaption": "On the move, camera in hand.",
     "featuredFilms": "Selected films",
     "previousFilm": "Previous film",
-    "nextFilm": "Next film"
+    "nextFilm": "Next film",
+    "watchPlatform": "Watch on YouTube ↗"
   },
   "zh": {
     "skip": "跳至正文",
@@ -608,7 +619,7 @@ window.BRYAN_COPY = {
     "navWork": "作品",
     "navAbout": "关于我",
     "navServices": "合作方式",
-    "navFinder": "合作小测试",
+    "navFinder": "不确定哪种方案适合您？",
     "letsTalk": "聊聊合作 ↗",
     "heroKicker": "内容创作者",
     "heroLine1": "您好，",
@@ -616,7 +627,7 @@ window.BRYAN_COPY = {
     "heroIntro": "我制作人物纪录片、YouTube 专题和社交媒体内容，帮助品牌和企业介绍产品、展示专业，让潜在客户更了解您的业务。",
     "exploreWork": "查看作品",
     "startConversation": "联系我",
-    "unsureLink": "还没想好怎么拍？先做个合作小测试。",
+    "unsureLink": "还没想好怎么拍？先看看哪种方案适合您。",
     "photoCaption": "内容创作者",
     "photoNote": "吉隆坡 · 上海",
     "theStories": "我的原创栏目",
@@ -660,7 +671,7 @@ window.BRYAN_COPY = {
     "partnersKicker": "合作客户",
     "partnersTitle": "合作品牌",
     "partnersNote": "合作项目资料与品牌标识待补充。",
-    "finderKicker": "合作小测试",
+    "finderKicker": "找到适合您的方案",
     "finderTitle": "想做视频，",
     "finderTitle2": "还没想好怎么拍？",
     "finderIntro": "回答几个简单问题，看看人物纪录片、YouTube 专题或短视频，哪一种更适合您的需求。做完后可以把想法发给我，我们再一起讨论。",
@@ -670,7 +681,7 @@ window.BRYAN_COPY = {
     "faqKicker": "合作前，您可能想了解",
     "faqTitle": "常见问题",
     "faqQ1": "还没有具体想法，可以先联系吗？",
-    "faqA1": "可以。先告诉我您做什么业务、想让谁看到，以及目前最想解决的问题。例如客户不了解服务、产品需要演示，或想介绍创办人的经历。我会和您一起讨论适合的做法，也可以先做合作小测试，梳理自己的需求。",
+    "faqA1": "可以。先告诉我您做什么业务、想让谁看到，以及目前最想解决的问题。例如客户不了解服务、产品需要演示，或想介绍创办人的经历。我会和您一起讨论适合的做法。如果还没想清楚，也可以先回答 5 个简单问题，看看适合从哪种内容开始。",
     "faqQ2": "视频会发布在您的账号吗？",
     "faqA2": "马来西亚人物与职业纪录片 RM10,000 起，包含在我的频道发布。中国及跨地区项目另行报价。其他合作可以只做拍摄制作，也可以包含账号发布；具体平台、发布时间和交付版本会提前确认。",
     "faqQ3": "费用如何计算？",
@@ -683,16 +694,15 @@ window.BRYAN_COPY = {
     "contactIntro": "简单介绍一下您的业务、想解决的问题，以及大致的时间和地点。有现成的参考视频，也欢迎一起发给我。",
     "emailMe": "发邮件",
     "contactAside": "人物纪录片、YouTube 专题\n与社交媒体合作。",
-    "takeFinder": "还没想好？先做合作小测试 ↗",
+    "takeFinder": "不确定怎么选？先看看适合的方案 ↗",
     "footerLine": "人物纪录片 · YouTube 专题 · 品牌合作",
     "footerDraft": "吉隆坡 · 上海",
     "backTop": "回到顶部 ↑",
-    "watchYouTube": "在 YouTube 观看 ↗",
     "questionHint": "请选择最符合您情况的一项。",
     "previous": "← 上一题",
     "next": "下一题 →",
     "showResult": "查看建议 ↗",
-    "quizPrivacy": "答案不会自动发送给我。测试结束后，您可以修改留言，再选择是否联系。",
+    "quizPrivacy": "答案不会自动发送。填写后，您可以修改留言，再决定是否联系我。",
     "resultKicker": "适合优先讨论的合作方式",
     "resultLabel": "发给 Bryan 的留言 · 可以直接修改",
     "copyBrief": "复制留言",
@@ -703,7 +713,7 @@ window.BRYAN_COPY = {
     "copied": "留言已复制，可以粘贴发送。",
     "copyFailed": "请选中留言内容，手动复制。",
     "watchFilm": "观看影片",
-    "results": "测试结果",
+    "results": "初步建议",
     "briefHeading": "Hi Bryan，我想聊一个合作项目。",
     "suggested": "初步方向",
     "reason": "适合解决的问题",
@@ -738,7 +748,7 @@ window.BRYAN_COPY = {
     "languageLabel": "切换语言",
     "homeLabel": "Bryan Ng 首页",
     "closeVideoLabel": "关闭视频",
-    "progressLabel": "测试进度",
+    "progressLabel": "填写进度",
     "docActionLabel": "咨询纪录片合作",
     "ytActionLabel": "咨询 YouTube 合作",
     "igActionLabel": "咨询 Instagram 合作",
@@ -802,7 +812,7 @@ window.BRYAN_COPY = {
     "homeIntro": "想介绍团队的专业、解释产品与服务，或宣传新品与活动？我会先了解您希望解决什么问题，再一起决定拍什么、怎么拍，以及在哪里发布。",
     "homePrimary": "选择合作方向",
     "homeSecondary": "聊聊您的项目",
-    "homeUnsure": "还没想好怎么拍？做个 3 分钟小测试",
+    "homeUnsure": "还没想好怎么拍？用 3 分钟理清需求",
     "solutionsKicker": "从您的需求出发",
     "solutionsTitle": "您希望通过内容，",
     "solutionsTitle2": "让客户了解什么？",
@@ -824,7 +834,7 @@ window.BRYAN_COPY = {
     "homeAboutBody": "了解我的内容风格、理工科背景，以及从策划到制作的工作方式。",
     "homeFinderTitle": "还没确定适合哪种内容？",
     "homeFinderBody": "回答 5 个问题，梳理您的目标、受众和现有素材，得到一个初步合作方向。",
-    "homeFinderCTA": "开始合作小测试",
+    "homeFinderCTA": "回答 5 个问题，看看建议",
     "homeContactTitle": "已经有具体项目？",
     "homeContactBody": "告诉我您的业务、拍摄地点和大致时间，我们一起讨论制作安排。",
     "homeContactCTA": "联系我",
@@ -860,7 +870,7 @@ window.BRYAN_COPY = {
     "workPageTitle": "作品",
     "aboutPageTitle": "关于我",
     "clientsPageTitle": "合作客户",
-    "finderPageTitle": "合作小测试",
+    "finderPageTitle": "选择适合的内容方案",
     "contactPageTitle": "联系我",
     "contactTemplateTitle": "联系时可以告诉我",
     "contactTemplate": "您的公司／品牌、希望解决的问题、拍摄地点，以及大致时间。已有参考视频或素材，也欢迎一起发来。",
@@ -876,7 +886,8 @@ window.BRYAN_COPY = {
     "aboutTramCaption": "带着相机，记录沿途的见闻。",
     "featuredFilms": "精选作品",
     "previousFilm": "上一支影片",
-    "nextFilm": "下一支影片"
+    "nextFilm": "下一支影片",
+    "watchPlatform": "在 YouTube 观看 ↗"
   }
 };
 

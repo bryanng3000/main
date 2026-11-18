@@ -83,12 +83,17 @@
   function createFilmCard(film,index){
     const card=uiButton('','work-card',()=>openFilm(film));card.dataset.filmId=film.id;card.setAttribute('aria-label',t('watchFilm')+': '+film[lang]);
     const image=el('div','work-image'),img=el('img');img.src=film.image;img.alt=film[lang];img.loading='lazy';img.width=720;img.height=405;
-    image.append(img,el('span','work-overlay'),el('span','work-index',String(index+1).padStart(2,'0')+(lang==='zh'?' / 精选作品':' / SELECTED FILM')),el('span','work-play','▶'),el('span','work-length',lang==='zh'?'观看影片 ↗':'WATCH FILM ↗'));
+    image.append(img,el('span','work-overlay'),el('span','work-index',String(index+1).padStart(2,'0')+(lang==='zh'?' / 精选作品':' / SELECTED FILM')),el('span','work-play','▶'),el('span','work-length',t('watchPlatform')));
     const info=el('div','work-info'),text=el('div');text.append(el('h3','',film[lang]),el('p','work-type',lang==='zh'?film.typeZh:film.typeEn));info.append(text,el('span','work-arrow','↗'));card.append(image,info);return card;
   }
   function openFilm(film){
-    $('#film-dialog-title').textContent=film[lang];$('#film-external').href='https://www.youtube.com/watch?v='+film.id;
-    const frame=el('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+film.id;frame.title=film[lang];frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';$('#film-player').replaceChildren(frame);openDialog($('#film-dialog'));
+    const china=region==='cn',bvid=film.bilibiliId;
+    $('#film-dialog-title').textContent=film[lang];
+    $('#film-external').href=china?(bvid?'https://www.bilibili.com/video/'+bvid+'/':contact().workUrl):'https://www.youtube.com/watch?v='+film.id;
+    if(china&&!bvid){$('#film-player').replaceChildren(el('p','section-note',t('bilibiliProfileHint')));openDialog($('#film-dialog'));return;}
+    const frame=el('iframe');
+    frame.src=china?'https://player.bilibili.com/player.html?bvid='+bvid+'&p=1&autoplay=0&danmaku=0&poster=1':'https://www.youtube-nocookie.com/embed/'+film.id;
+    frame.title=film[lang];frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';$('#film-player').replaceChildren(frame);openDialog($('#film-dialog'));
   }
   function openDialog(dialog){dialog.showModal();document.body.classList.add('dialog-open');}
   document.querySelectorAll('dialog').forEach(dialog=>{
