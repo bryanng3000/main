@@ -208,3 +208,28 @@ html[lang="zh-CN"] .detail-hero h1{font-size:clamp(36px,3.6vw,48px);line-height:
 }
 
 .detail-work .work-grid{align-items:start}
+
+/* One selected film at a time on the home and Work pages. */
+.work-grid.film-carousel{display:block;min-width:0}
+.work-section .film-carousel{max-width:960px;margin-inline:auto}
+.film-carousel:focus-visible{outline:3px solid #4c5e69;outline-offset:7px}
+.film-carousel-stage{position:relative;min-width:0}
+.film-carousel-controls{position:absolute;top:0;left:0;width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:space-between;padding-inline:16px;pointer-events:none}
+.film-carousel-arrow{pointer-events:auto;display:grid;place-items:center;width:48px;height:48px;padding:0;border:1px solid #c2c8cc;border-radius:50%;background:#ffffffed;color:#20272c;box-shadow:0 3px 14px #10171c20;transition:background .2s,transform .2s}
+.film-carousel-arrow .ui-icon{width:23px;height:23px}
+.film-carousel-arrow:hover{background:#fff;transform:scale(1.06)}
+.film-carousel-arrow:disabled{opacity:.45}
+.film-carousel .work-info{min-height:112px;align-items:flex-start}
+.film-carousel .work-info>div{flex:1;min-width:0}
+.film-carousel .work-info h3{max-width:none;font-size:22px;line-height:1.5}
+.film-carousel .work-type{font-size:14px;line-height:1.7;letter-spacing:.02em}
+.film-carousel-status,.home-more .film-carousel-status{margin:0;padding-top:10px;border-top:1px solid var(--line);font-size:15px;line-height:1.6;font-variant-numeric:tabular-nums;letter-spacing:.08em;text-align:right;color:var(--muted)}
+@media(max-width:640px){
+ .film-carousel-controls{padding-inline:10px}
+ .film-carousel-arrow{width:44px;height:44px}
+ .film-carousel .work-info{min-height:148px}
+ .film-carousel .work-info h3{font-size:20px;line-height:1.5}
+ .film-carousel .work-type{font-size:13px}
+ .film-carousel-status,.home-more .film-carousel-status{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.film-carousel-arrow{transition:none}}

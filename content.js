@@ -597,7 +597,10 @@ window.BRYAN_COPY = {
     "workSolutionsTitle": "Which direction fits your project?",
     "faqNav": "FAQ",
     "aboutMirrorCaption": "Behind the camera.",
-    "aboutTramCaption": "On the move, camera in hand."
+    "aboutTramCaption": "On the move, camera in hand.",
+    "featuredFilms": "Selected films",
+    "previousFilm": "Previous film",
+    "nextFilm": "Next film"
   },
   "zh": {
     "skip": "跳至正文",
@@ -870,7 +873,10 @@ window.BRYAN_COPY = {
     "workSolutionsTitle": "想聊哪一种合作？",
     "faqNav": "常见问题",
     "aboutMirrorCaption": "镜头背后的我。",
-    "aboutTramCaption": "带着相机，记录沿途的见闻。"
+    "aboutTramCaption": "带着相机，记录沿途的见闻。",
+    "featuredFilms": "精选作品",
+    "previousFilm": "上一支影片",
+    "nextFilm": "下一支影片"
   }
 };
 

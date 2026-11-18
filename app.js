@@ -1,6 +1,7 @@
 'use strict';
 (() => {
   const config=window.BRYAN_CONFIG,copy=window.BRYAN_COPY,questions=window.BRYAN_QUESTIONS;
+  let featuredFilmIndex=0;
   let lang='en',region='my',step=0,answers={},finished=false,toastTimer,activeRateCategory=null,partnersPaused=false,editedBrief={en:null,zh:null};
   try {const saved=localStorage.getItem('bryan-language');if(saved==='zh'||saved==='en')lang=saved;const savedRegion=localStorage.getItem('bryan-region');if(config.regions[savedRegion])region=savedRegion;}catch{}
   const requestedRegion=new URLSearchParams(location.search).get('region');if(config.regions[requestedRegion])region=requestedRegion;
@@ -51,12 +52,39 @@
   function renderFilms(){
     const grid=$('#work-grid');if(!grid)return;grid.replaceChildren();
     const ids=grid.dataset.filmIds?.split(',');
-    config.films.filter(film=>!ids||ids.includes(film.id)).forEach((film,i)=>{
-      const card=uiButton('','work-card',()=>openFilm(film));card.setAttribute('aria-label',t('watchFilm')+': '+film[lang]);
-      const image=el('div','work-image'),img=el('img');img.src=film.image;img.alt=film[lang];img.loading='lazy';img.width=720;img.height=405;
-      image.append(img,el('span','work-overlay'),el('span','work-index',String(i+1).padStart(2,'0')+(lang==='zh'?' / 精选作品':' / SELECTED FILM')),el('span','work-play','▶'),el('span','work-length',lang==='zh'?'观看影片 ↗':'WATCH FILM ↗'));
-      const info=el('div','work-info'),text=el('div');text.append(el('h3','',film[lang]),el('p','work-type',lang==='zh'?film.typeZh:film.typeEn));info.append(text,el('span','work-arrow','↗'));card.append(image,info);grid.append(card);
-    });
+    const films=config.films.filter(film=>!ids||ids.includes(film.id));
+    if(grid.dataset.carousel!=='true'){films.forEach((film,i)=>grid.append(createFilmCard(film,i)));return;}
+    if(!films.length)return;
+    grid.classList.add('film-carousel');grid.tabIndex=0;
+    grid.setAttribute('role','region');grid.setAttribute('aria-roledescription',lang==='zh'?'轮播':'carousel');grid.setAttribute('aria-label',t('featuredFilms'));
+    const stage=el('div','film-carousel-stage'),slide=el('div','film-carousel-slide');slide.id='film-carousel-slide';slide.setAttribute('role','group');
+    const controls=el('div','film-carousel-controls');
+    const previous=uiButton('←','film-carousel-arrow film-carousel-previous',()=>show(featuredFilmIndex-1));
+    const next=uiButton('→','film-carousel-arrow film-carousel-next',()=>show(featuredFilmIndex+1));
+    for(const [button,label] of [[previous,t('previousFilm')],[next,t('nextFilm')]]){button.setAttribute('aria-label',label);button.title=label;button.setAttribute('aria-controls',slide.id);button.disabled=films.length<2;}
+    controls.append(previous,next);stage.append(slide,controls);
+    const status=el('p','film-carousel-status');status.setAttribute('role','status');status.setAttribute('aria-live','polite');status.setAttribute('aria-atomic','true');
+    grid.append(stage,status);
+    function show(index){
+      const restoreFocus=slide.contains(document.activeElement);
+      featuredFilmIndex=(index%films.length+films.length)%films.length;
+      const film=films[featuredFilmIndex];slide.replaceChildren(createFilmCard(film,featuredFilmIndex));
+      slide.setAttribute('aria-label',lang==='zh'?'第 '+(featuredFilmIndex+1)+' 支，共 '+films.length+' 支':(featuredFilmIndex+1)+' of '+films.length);
+      status.textContent=String(featuredFilmIndex+1).padStart(2,'0')+' / '+String(films.length).padStart(2,'0');
+      decorateIcons(slide);
+      if(restoreFocus)slide.querySelector('.work-card').focus({preventScroll:true});
+    }
+    grid.onkeydown=event=>{
+      const position={ArrowLeft:featuredFilmIndex-1,ArrowRight:featuredFilmIndex+1,Home:0,End:films.length-1}[event.key];
+      if(position===undefined)return;event.preventDefault();show(position);
+    };
+    show(featuredFilmIndex);decorateIcons(controls);
+  }
+  function createFilmCard(film,index){
+    const card=uiButton('','work-card',()=>openFilm(film));card.dataset.filmId=film.id;card.setAttribute('aria-label',t('watchFilm')+': '+film[lang]);
+    const image=el('div','work-image'),img=el('img');img.src=film.image;img.alt=film[lang];img.loading='lazy';img.width=720;img.height=405;
+    image.append(img,el('span','work-overlay'),el('span','work-index',String(index+1).padStart(2,'0')+(lang==='zh'?' / 精选作品':' / SELECTED FILM')),el('span','work-play','▶'),el('span','work-length',lang==='zh'?'观看影片 ↗':'WATCH FILM ↗'));
+    const info=el('div','work-info'),text=el('div');text.append(el('h3','',film[lang]),el('p','work-type',lang==='zh'?film.typeZh:film.typeEn));info.append(text,el('span','work-arrow','↗'));card.append(image,info);return card;
   }
   function openFilm(film){
     $('#film-dialog-title').textContent=film[lang];$('#film-external').href='https://www.youtube.com/watch?v='+film.id;
