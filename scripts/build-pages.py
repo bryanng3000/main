@@ -2,9 +2,11 @@
 from pathlib import Path
 import re
 import json
+from hashlib import sha256
 from html import escape
 
 ROOT = Path(__file__).resolve().parents[1]
+ASSET_ROOT = ROOT
 template = (ROOT / 'src/layout.html').read_text()
 copy_text = (ROOT / 'content.js').read_text()
 english = json.loads(re.search(r'window.BRYAN_COPY = (\{.*?\});\n', copy_text, re.S).group(1))['en']
@@ -94,6 +96,12 @@ for slug,(main,title_key,title) in pages.items():
         html=html.replace(f'href="{old}"',f'href="{new}"')
     # Wordmarks always return home; back-to-top remains local.
     html=re.sub(r'(class="wordmark" href=")#top',r'\1index.html',html)
+    # Asset revisions let browsers load the matching content after publication.
+    def asset_revision(match):
+        filename = match.group(2)
+        revision = sha256((ASSET_ROOT / filename).read_bytes()).hexdigest()[:12]
+        return match.group(1) + '="' + filename + '?v=' + revision + '"'
+    html = re.sub(r'(href|src)="((?:content|app)\.js|(?:styles|pages|theme)\.css)"', asset_revision, html)
     (ROOT/f'{slug}.html').write_text(html)
 # Keep old bookmarks useful without retaining a separate Clients page.
 (ROOT/'clients.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Brand collaborations — Bryan Ng</title><script>location.replace('index.html'+location.search+'#partners')</script></head><body><a href="index.html#partners">Brand collaborations / 合作品牌</a></body></html>''')
