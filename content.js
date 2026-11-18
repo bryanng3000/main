@@ -10,6 +10,14 @@ window.BRYAN_CONFIG = {
       "typeZh": "人间马来西亚 · 人物纪录片"
     },
     {
+      "id": "cFNUXOzF8o8",
+      "image": "assets/work-entrepreneur.jpg",
+      "en": "A Malaysian programmer building a business in China.",
+      "zh": "创业还没成功，就不算失败？｜在中国创业的大马程序员的一天",
+      "typeEn": "Meeting Malaysia · Documentary",
+      "typeZh": "人间马来西亚 · 人物纪录片"
+    },
+    {
       "id": "kB9ajFAxLaw",
       "image": "assets/work-retirement.jpg",
       "en": "Can Malaysians afford to retire?",

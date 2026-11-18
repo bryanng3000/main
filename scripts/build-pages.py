@@ -67,7 +67,7 @@ def detail(n, slug, image, filmids):
 
 pages={
  'index':(home,'homeTitle','Content production & documentaries'),
- 'documentary':(detail(0,'documentary','assets/work-lawyer.jpg','rvwYqiqj8wg'),'solution1Title','People & professional documentaries'),
+ 'documentary':(detail(0,'documentary','assets/work-lawyer.jpg','rvwYqiqj8wg,cFNUXOzF8o8'),'solution1Title','People & professional documentaries'),
  'explainers':(detail(1,'explainers','assets/work-retirement.jpg','kB9ajFAxLaw,CP6NEL7REYQ'),'solution2Title','Explainers & brand features'),
  'social':(detail(2,'social','assets/work-4.jpg','9E874nT2Ggc'),'solution3Title','Short-form & social content'),
  'work':(breadcrumbs('workPageTitle')+section('work')+work_solutions()+contact_cta(),'workPageTitle','Work'),
