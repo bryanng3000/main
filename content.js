@@ -8,7 +8,29 @@ window.BRYAN_CONFIG = {
       "zh": "马来西亚律师的真实一天：独自来到香港创业",
       "typeEn": "Meeting Malaysia · Documentary",
       "typeZh": "人间马来西亚 · 人物纪录片",
-      "bilibiliId": "BV1SVJ16fEg3"
+      "bilibiliId": "BV1SVJ16fEg3",
+      "caseStudy": {
+        "zh": {
+          "name": "Janice｜律师人物纪录片",
+          "story": "从马来西亚来到香港发展，她怎样看待职业选择、专业要求，以及尝试与失败？通过人物访谈和工作现场，影片记录她的经历与判断。",
+          "approach": [
+            "人物访谈",
+            "工作现场",
+            "职业经历"
+          ],
+          "fit": "专业人士介绍、创办人故事与团队专业展示。"
+        },
+        "en": {
+          "name": "Janice | A lawyer’s story",
+          "story": "A move from Malaysia to Hong Kong, high professional standards and a willingness to try again. Interviews and time at work explore Janice’s career choices and her perspective on failure.",
+          "approach": [
+            "Personal interview",
+            "Workplace footage",
+            "Career story"
+          ],
+          "fit": "A professional profile, founder story or introduction to the people behind a service."
+        }
+      }
     },
     {
       "id": "cFNUXOzF8o8",
@@ -17,7 +39,29 @@ window.BRYAN_CONFIG = {
       "zh": "创业还没成功，就不算失败？｜在中国创业的大马程序员的一天",
       "typeEn": "Meeting Malaysia · Documentary",
       "typeZh": "人间马来西亚 · 人物纪录片",
-      "bilibiliId": "BV1dZsu6DE69"
+      "bilibiliId": "BV1dZsu6DE69",
+      "caseStudy": {
+        "zh": {
+          "name": "Monish｜创业者人物纪录片",
+          "story": "第一次创业的团队曾接近二十人，如今他和合伙人以两人团队重新出发。影片围绕他的创业经历、团队分工，以及借助 AI 工具为企业解决实际工作问题的业务展开。",
+          "approach": [
+            "工作跟拍",
+            "创业访谈",
+            "业务解说"
+          ],
+          "fit": "创业者介绍、技术业务与专业服务说明。"
+        },
+        "en": {
+          "name": "Monish | Building again in China",
+          "story": "After a first venture with a team of nearly twenty, Monish is starting again with one co-founder. The film explores his working day, the lessons of that first business and how their two-person team uses AI tools to solve practical problems for companies.",
+          "approach": [
+            "A working day",
+            "Founder interview",
+            "Business explanation"
+          ],
+          "fit": "A founder profile or a film that makes a technical business or specialist service easier to understand."
+        }
+      }
     },
     {
       "id": "kB9ajFAxLaw",
@@ -615,7 +659,12 @@ window.BRYAN_COPY = {
     "nextFilm": "Next film",
     "watchPlatform": "Watch on YouTube ↗",
     "homeFeatureCaption": "On location",
-    "homeMoreIntro": "People, business and everyday life. Explore my interviews, research and approach to storytelling."
+    "homeMoreIntro": "People, business and everyday life. Explore my interviews, research and approach to storytelling.",
+    "caseStoryLabel": "The story",
+    "caseApproachLabel": "The approach",
+    "caseFitLabel": "A reference for your project",
+    "docCaseIntro": "A lawyer’s career and an entrepreneur’s working day. Watch the films, then explore the stories and the approach behind each one.",
+    "documentaryCasesLink": "Explore the Janice and Monish documentary examples"
   },
   "zh": {
     "skip": "跳至正文",
@@ -895,7 +944,12 @@ window.BRYAN_COPY = {
     "nextFilm": "下一支影片",
     "watchPlatform": "在 YouTube 观看 ↗",
     "homeFeatureCaption": "拍摄途中",
-    "homeMoreIntro": "人物故事、经济与社会议题。看看我的采访、解说与拍摄方式。"
+    "homeMoreIntro": "人物故事、经济与社会议题。看看我的采访、解说与拍摄方式。",
+    "caseStoryLabel": "故事内容",
+    "caseApproachLabel": "呈现方式",
+    "caseFitLabel": "可参考的合作方向",
+    "docCaseIntro": "两支人物纪录片，从律师的职业选择，到创业者的工作日常。可以先看成片，再了解每支作品的故事与呈现方式。",
+    "documentaryCasesLink": "了解 Janice 与 Monish 的作品案例"
   }
 };
 

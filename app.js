@@ -84,7 +84,13 @@
     const card=uiButton('','work-card',()=>openFilm(film));card.dataset.filmId=film.id;card.setAttribute('aria-label',t('watchFilm')+': '+film[lang]);
     const image=el('div','work-image'),img=el('img');img.src=film.image;img.alt=film[lang];img.loading='lazy';img.width=720;img.height=405;
     image.append(img,el('span','work-overlay'),el('span','work-index',String(index+1).padStart(2,'0')+(lang==='zh'?' / 精选作品':' / SELECTED FILM')),el('span','work-play','▶'),el('span','work-length',t('watchPlatform')));
-    const info=el('div','work-info'),text=el('div');text.append(el('h3','',film[lang]),el('p','work-type',lang==='zh'?film.typeZh:film.typeEn));info.append(text,el('span','work-arrow','↗'));card.append(image,info);return card;
+    const info=el('div','work-info'),text=el('div');text.append(el('h3','',film[lang]),el('p','work-type',lang==='zh'?film.typeZh:film.typeEn));info.append(text,el('span','work-arrow','↗'));card.append(image,info);
+    const study=document.body.dataset.page==='documentary'&&film.caseStudy?.[lang];
+    if(!study)return card;
+    const entry=el('article','film-case-card'),details=el('div','film-case-copy');
+    details.append(el('p','film-case-person',study.name),el('p','film-case-label',t('caseStoryLabel')),el('p','film-case-story',study.story),el('p','film-case-label',t('caseApproachLabel')));
+    const tags=el('ul','film-case-tags');study.approach.forEach(item=>tags.append(el('li','',item)));details.append(tags,el('p','film-case-label',t('caseFitLabel')),el('p','film-case-fit',study.fit));
+    entry.append(card,details);return entry;
   }
   function openFilm(film){
     const china=region==='cn',bvid=film.bilibiliId;

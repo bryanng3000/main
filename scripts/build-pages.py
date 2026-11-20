@@ -65,7 +65,7 @@ def detail(n, slug, image, filmids):
     intro+='<section class="wrap detail-hero" aria-labelledby="page-title"><div>'+i(f'solution{n+1}Format','div','eyebrow')+'<h1 id="page-title">'+i(key+'PageTitle')+i(key+'PageTitle2','em')+'</h1>'+i(key+'PageIntro','p','detail-intro')+'<div class="hero-buttons">'+link('contact.html','detailDiscuss','button blue')+link('finder.html','navFinder')+'</div></div><figure><img src="'+image+'" alt="" width="720" height="405"></figure></section>'
     intro+='<section class="detail-fit"><div class="wrap detail-fit-grid">'+i('detailFit','h2')+'<ul>'+''.join(i(key+f'Fit{x}','li') for x in [1,2,3])+'</ul></div></section>'
     intro+='<section class="wrap section detail-production" id="scope"><div>'+i('detailScope','h2')+i('scopeNote','p')+i('productionNote','p','section-note')+'</div><div class="detail-service">'+service_articles[n]+'</div></section>'
-    intro+='<section class="detail-work"><div class="wrap section"><div class="section-top"><div>'+i('detailExample','h2')+i('detailExampleNote','p','detail-example-note')+'</div>'+link('work.html','exploreWork')+'</div><div class="work-grid" id="work-grid" data-film-ids="'+filmids+'"></div></div></section>'
+    intro+='<section class="detail-work" id="examples"><div class="wrap section"><div class="section-top"><div>'+i('detailExample','h2')+i('docCaseIntro' if n==0 else 'detailExampleNote','p','detail-example-note')+'</div>'+link('work.html','exploreWork')+'</div><div class="work-grid" id="work-grid" data-film-ids="'+filmids+'"></div></div></section>'
     intro+=feedback(slug)+contact_cta()+'<div class="wrap return-solutions">'+link('index.html#solutions','detailOther')+'</div>'
     return intro
 
@@ -74,7 +74,7 @@ pages={
  'documentary':(detail(0,'documentary','assets/work-lawyer.jpg','rvwYqiqj8wg,cFNUXOzF8o8'),'solution1Title','People & professional documentaries'),
  'explainers':(detail(1,'explainers','assets/work-retirement.jpg','kB9ajFAxLaw,CP6NEL7REYQ'),'solution2Title','Explainers & brand features'),
  'social':(detail(2,'social','assets/work-4.jpg','9E874nT2Ggc'),'solution3Title','Short-form & social content'),
- 'work':(breadcrumbs('workPageTitle')+section('work').replace('id="work-grid"','id="work-grid" data-carousel="true"')+work_solutions()+contact_cta(),'workPageTitle','Work'),
+ 'work':(breadcrumbs('workPageTitle')+section('work').replace('id="work-grid"','id="work-grid" data-carousel="true"')+'<div class="wrap work-case-link">'+link('documentary.html#examples','documentaryCasesLink')+'</div>'+work_solutions()+contact_cta(),'workPageTitle','Work'),
  'about':(breadcrumbs('aboutPageTitle')+section('about')+section('audience')+contact_cta(),'aboutPageTitle','About'),
  'finder':(breadcrumbs('finderPageTitle')+section('finder'),'finderPageTitle','Project finder'),
  'contact':(breadcrumbs('contactPageTitle')+section('contact')+section('faq'),'contactPageTitle','Contact'),

@@ -142,6 +142,20 @@ html[lang="zh-CN"] .home-hero h1{letter-spacing:-.035em;line-height:1.23}
 .service-rates-dialog,.wechat-dialog{border-radius:24px}
 .rates-table th,.rates-table td{font-size:16px;line-height:1.65}
 
+/* Documentary examples explain the work without inventing client outcomes. */
+.film-case-card{min-width:0;overflow:hidden;border-radius:24px;background:#fff;display:flex;flex-direction:column}
+.film-case-card>.work-card{flex-shrink:0}
+.film-case-card>.work-card .work-image{border-radius:0}
+.film-case-card>.work-card .work-info{padding:23px 28px 0}
+.film-case-copy{padding:25px 28px 32px;flex:1}
+.film-case-person{font-size:21px;font-weight:600;line-height:1.5;margin-bottom:24px;letter-spacing:-.02em}
+.film-case-label{font-size:14px;font-weight:550;color:#626267;line-height:1.7;margin-bottom:8px}
+.film-case-story,.film-case-fit{font-size:18px;line-height:1.85;color:#343438;margin:0 0 23px}
+.film-case-fit{margin-bottom:0}
+.film-case-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 24px;padding:0}
+.film-case-tags li{font-size:14px;line-height:1.6;padding:7px 12px;border-radius:999px;background:#f5f5f7;color:#46464b}
+.work-case-link{padding-bottom:42px}
+
 @media(max-width:1100px){
  .main-nav{gap:20px}.nav-settings{margin-left:4px;gap:13px}
  .nav-wrap{gap:24px}
@@ -271,6 +285,12 @@ html[lang="zh-CN"] .home-hero h1{letter-spacing:-.035em;line-height:1.23}
  .contact-detail{font-size:17px}
  .service-rates-dialog{padding:26px 20px}
  .rates-table th,.rates-table td{font-size:15px;padding:13px 7px}
+ .film-case-card{border-radius:22px}
+ .film-case-card>.work-card .work-info{padding:20px 22px 0}
+ .film-case-copy{padding:23px 22px 27px}
+ .film-case-person{font-size:20px;margin-bottom:20px}
+ .film-case-story,.film-case-fit{font-size:17px;line-height:1.85}
+ .work-case-link{padding-bottom:30px}
 }
 @media(prefers-reduced-motion:reduce){
  .solution-card,.button{transition:none}
