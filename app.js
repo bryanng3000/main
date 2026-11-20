@@ -102,6 +102,7 @@
     dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');if(dialog.id==='film-dialog')$('#film-player').replaceChildren();});
   });
   $('#menu-button').addEventListener('click',()=>{const open=$('#main-nav').classList.toggle('open');$('#menu-button').setAttribute('aria-expanded',String(open));$('#menu-button').setAttribute('aria-label',t(open?'menuClose':'menuOpen'));});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&$('#main-nav').classList.contains('open')){$('#main-nav').classList.remove('open');$('#menu-button').setAttribute('aria-expanded','false');$('#menu-button').setAttribute('aria-label',t('menuOpen'));$('#menu-button').focus();}});
   document.querySelectorAll('#main-nav a').forEach(a=>a.addEventListener('click',()=>{$('#main-nav').classList.remove('open');$('#menu-button').setAttribute('aria-expanded','false');$('#menu-button').setAttribute('aria-label',t('menuOpen'));}));
   document.querySelectorAll('[data-lang]').forEach(x=>x.addEventListener('click',()=>changeLanguage(x.dataset.lang)));
   $('#region-select').addEventListener('change',e=>changeRegion(e.target.value));
@@ -149,8 +150,11 @@
       const active=a.dataset.nav===page||(a.dataset.nav==='solutions'&&['documentary','explainers','social'].includes(page));
       if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
     });
-    const title=document.body.dataset.pageTitle;if(title)document.title=(page==='index'?(lang==='zh'?'人物纪录片与品牌内容制作':'Documentaries & content for business'):t(title))+' — Bryan Ng';
+    const title=document.body.dataset.pageTitle;if(title)document.title=(page==='index'?(lang==='zh'?'人物纪录片与品牌内容制作':'Documentaries & content for business'):t(title))+' — '+t('brandFullName');
     const meta=$('meta[name="description"]');if(meta)meta.content=page==='index'?t('homeIntro'):t(({documentary:'docPageIntro',explainers:'explainPageIntro',social:'socialPageIntro',work:'workNote',about:'aboutLead',finder:'finderIntro',contact:'contactIntro',clients:'partnersIntro'})[page]||'homeIntro');
+    const ogTitle=$('meta[property="og:title"]');if(ogTitle)ogTitle.content=document.title;
+    const ogSite=$('meta[property="og:site_name"]');if(ogSite)ogSite.content=t('brandFullName');
+    const ogDescription=$('meta[property="og:description"]');if(ogDescription&&meta)ogDescription.content=meta.content;
   }
   function renderRateDialog(){
     const dialog=$('#service-rates-dialog'),body=$('#category-rates-body'),usagePrice=$('#usage-rate');body.replaceChildren();usagePrice.textContent='';

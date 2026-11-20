@@ -8,6 +8,9 @@ body{background:var(--paper);color:var(--ink)}
 .topline .top-social-button:hover{background:#e7ebed;border-color:#6c7880}
 .region-control select,.region-control option{background:#fff;color:#20272c;border-color:#9fa9af}
 .header{background:rgba(255,255,255,.97);border-color:var(--line)}
+.wordmark .brand-name{color:var(--ink)}
+html[lang="zh-CN"] .wordmark .brand-name{letter-spacing:.02em}
+.wordmark small{font-size:14px;line-height:1.35;font-weight:500;letter-spacing:0;margin-top:7px;color:var(--muted)}
 .main-nav{background:transparent}
 .main-nav a:hover,.text-link:hover,.breadcrumbs a:hover,.home-unsure:hover{color:#000}
 .language button{color:#626d74}

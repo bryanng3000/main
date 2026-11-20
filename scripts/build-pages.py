@@ -21,7 +21,7 @@ def i(key, tag='span', cls=''):
     return f'<{tag}'+(f' class="{cls}"' if cls else '')+f' data-i18n="{key}">{escape(english[key])}</{tag}>'
 
 def link(href, key, cls='text-link'):
-    return f'<a class="{cls}" href="{href}">{i(key)}<span aria-hidden="true">↗</span></a>'
+    return f'<a class="{cls}" href="{href}">{i(key)}</a>'
 
 def breadcrumbs(key=None, back=False):
     trail='<div class="breadcrumb-trail">'+link('index.html','breadcrumbHome','')+(f'<span aria-hidden="true">/</span>{i(key)}' if key else '')+'</div>'
@@ -30,8 +30,10 @@ def breadcrumbs(key=None, back=False):
 
 def solution_cards():
     cards=[]
+    images=['assets/work-lawyer.jpg','assets/work-chips.jpg','assets/work-4.jpg']
     for n, path in enumerate(['documentary.html','explainers.html','social.html'],1):
-        cards.append(f'<a class="solution-card" href="{path}"><div class="solution-card-top"><span>0{n}</span><span aria-hidden="true">↗</span></div>'+i(f'solution{n}Title','h3')+i(f'solution{n}Body','p')+'<div class="solution-card-bottom">'+i(f'solution{n}Format','span','solution-format')+i('solutionMore','span','solution-link')+'</div></a>')
+        visual='<div class="solution-visual"><img src="'+images[n-1]+'" alt="" width="720" height="405" loading="lazy"></div>'
+        cards.append(f'<a class="solution-card" href="{path}">'+visual+'<div class="solution-copy">'+i(f'solution{n}Format','p','solution-format')+i(f'solution{n}Title','h3')+i(f'solution{n}Body','p','solution-description')+'<div class="solution-card-bottom">'+i('solutionMore','span','solution-link')+'</div></div></a>')
     return '<div class="solution-grid">'+''.join(cards)+'</div>'
 
 def contact_cta():
@@ -46,10 +48,10 @@ def work_solutions():
 def feedback(category):
     return section('reviews').replace('class="reviews-section"','class="reviews-section service-feedback" data-review-category="'+category+'"')
 
-home = '''<section class="home-hero wrap" aria-labelledby="hero-title"><div class="home-hero-copy">'''+i('homeKicker','div','eyebrow')+'<h1 id="hero-title">'+i('homeTitle')+'<em data-i18n="homeTitle2"></em></h1>'+i('homeIdentity','p','home-identity')+i('homeIntro','p','home-intro')+'<div class="hero-buttons">'+link('#solutions','homePrimary','button blue')+link('contact.html','homeSecondary')+'</div><a class="home-unsure" href="finder.html">'+i('homeUnsure')+' <span aria-hidden="true">↗</span></a></div><figure class="home-portrait"><img src="assets/bryan-original.jpg" alt="Bryan Ng 黄钲权" width="1895" height="2527" fetchpriority="high"><figcaption><span>Bryan Ng 黄钲权</span>'+i('photoNote')+'</figcaption></figure></section>'
-home += '<section class="solutions-section section" id="solutions"><div class="wrap"><div class="section-top"><div>'+i('solutionsKicker','div','eyebrow')+'<h2>'+i('solutionsTitle')+i('solutionsTitle2','em')+'</h2></div>'+i('solutionsIntro','p','section-description')+'</div>'+solution_cards()+'</div></section>'
+home = '''<section class="home-hero wrap" aria-labelledby="hero-title"><div class="home-hero-copy"><div class="home-hero-heading">'''+i('homeKicker','div','eyebrow')+'<h1 id="hero-title">'+i('homeTitle')+'<em data-i18n="homeTitle2"></em></h1></div><div class="home-hero-intro">'+i('homeIntro','p','home-intro')+'<div class="hero-buttons">'+link('#solutions','homePrimary','button blue')+link('work.html','homeSecondary','button outline')+'</div></div></div><figure class="home-feature"><img src="assets/bryan-filming-tram.webp" alt="Bryan Ng 黄钲权 · 拍摄途中 / On location" width="1100" height="1467" fetchpriority="high"><figcaption><div>'+i('homeFeatureCaption','span','feature-label')+i('homeIdentity','span','feature-credit')+'</div>'+i('photoNote','span','feature-location')+'</figcaption></figure></section>'
+home += '<section class="solutions-section section" id="solutions"><div class="wrap"><div class="section-top"><div>'+i('solutionsKicker','div','eyebrow')+i('solutionsTitle','h2')+'</div>'+i('solutionsIntro','p','section-description')+'</div>'+solution_cards()+'</div></section>'
 home += section('audience')
-home += '<section class="wrap home-more section" aria-labelledby="home-more-title"><div class="home-more-heading">'+i('homeMoreKicker','div','eyebrow')+'<h2 id="home-more-title">'+i('homeMoreTitle')+i('homeMoreTitle2','em')+'</h2></div><div class="home-featured"><div class="work-grid" id="work-grid" data-carousel="true"></div></div><div class="home-more-links"><article>'+i('navWork','h3')+i('homeWorkBody','p')+link('work.html','exploreWork')+'</article><article>'+i('navAbout','h3')+i('homeAboutBody','p')+link('about.html','navAbout')+'</article></div></section>'
+home += '<section class="wrap home-more section" aria-labelledby="home-more-title"><div class="home-more-heading">'+i('homeMoreKicker','div','eyebrow')+'<h2 id="home-more-title">'+i('homeMoreTitle')+'</h2>'+i('homeMoreIntro','p')+'</div><div class="home-featured"><div class="work-grid" id="work-grid" data-carousel="true"></div></div><div class="home-more-links"><article>'+i('navWork','h3')+i('homeWorkBody','p')+link('work.html','exploreWork')+'</article><article>'+i('navAbout','h3')+i('homeAboutBody','p')+link('about.html','navAbout')+'</article></div></section>'
 home += partners_strip()
 home += '<section class="home-next"><div class="wrap home-next-grid"><article>'+i('homeFinderTitle','h2')+i('homeFinderBody','p')+link('finder.html','homeFinderCTA','button outline')+'</article><article>'+i('homeContactTitle','h2')+i('homeContactBody','p')+link('contact.html','homeContactCTA','button blue')+'</article></div></section>'
 home += section('faq')
@@ -78,13 +80,13 @@ pages={
  'contact':(breadcrumbs('contactPageTitle')+section('contact')+section('faq'),'contactPageTitle','Contact'),
 }
 
-nav = '<a href="index.html#solutions" data-nav="solutions" data-i18n="navSolutions">Solutions</a><a href="work.html" data-nav="work" data-i18n="navWork">Work</a><a href="about.html" data-nav="about" data-i18n="navAbout">About</a>'
-prefix=re.sub(r'(<nav class="main-nav"[^>]*>).*?</nav>', lambda m:m.group(1)+nav+'</nav>',prefix,flags=re.S)
-prefix=prefix.replace('<link rel="stylesheet" href="styles.css">','<link rel="stylesheet" href="styles.css">\n  <link rel="stylesheet" href="pages.css">\n  <link rel="stylesheet" href="theme.css">')
+prefix=prefix.replace('<link rel="stylesheet" href="styles.css">','<link rel="stylesheet" href="styles.css">\n  <link rel="stylesheet" href="pages.css">\n  <link rel="stylesheet" href="theme.css">\n  <link rel="stylesheet" href="studio.css">')
 prefix=prefix.replace('content="#2249da"','content="#ffffff"')
 for slug,(main,title_key,title) in pages.items():
     page_prefix=prefix.replace('<body>',f'<body data-page="{slug}" data-page-title="{title_key}">')
-    page_prefix=page_prefix.replace('<title>Bryan Ng — Content Creator</title>',f'<title>{title} — Bryan Ng</title>')
+    page_title = f'{title} — Casebook Films'
+    page_prefix=re.sub(r'<title>.*?</title>',lambda _: '<title>'+escape(page_title)+'</title>',page_prefix)
+    page_prefix=re.sub(r'(<meta property="og:title" content=")[^"]*',lambda m: m.group(1)+escape(page_title,quote=True),page_prefix)
     if slug not in ('index','documentary','explainers','social'):
         # Give every standalone information page one primary heading.
         main=re.sub(r'<h2\b([^>]*)>',r'<h1\1>',main,count=1)
@@ -101,8 +103,8 @@ for slug,(main,title_key,title) in pages.items():
         filename = match.group(2)
         revision = sha256((ASSET_ROOT / filename).read_bytes()).hexdigest()[:12]
         return match.group(1) + '="' + filename + '?v=' + revision + '"'
-    html = re.sub(r'(href|src)="((?:content|app)\.js|(?:styles|pages|theme)\.css)"', asset_revision, html)
+    html = re.sub(r'(href|src)="((?:content|app)\.js|(?:styles|pages|theme|studio)\.css|assets/favicon\.svg)"', asset_revision, html)
     (ROOT/f'{slug}.html').write_text(html)
 # Keep old bookmarks useful without retaining a separate Clients page.
-(ROOT/'clients.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Brand collaborations — Bryan Ng</title><script>location.replace('index.html'+location.search+'#partners')</script></head><body><a href="index.html#partners">Brand collaborations / 合作品牌</a></body></html>''')
+(ROOT/'clients.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Brand collaborations — Casebook Films</title><script>location.replace('index.html'+location.search+'#partners')</script></head><body><a href="index.html#partners">Brand collaborations / 合作品牌</a></body></html>''')
 print('Generated '+str(len(pages))+' static pages.')
