@@ -3,14 +3,23 @@
   const config=window.BRYAN_CONFIG,copy=window.BRYAN_COPY,questions=window.BRYAN_QUESTIONS;
   let featuredFilmIndex=0;
   let lang='en',region='my',step=0,answers={},finished=false,toastTimer,activeRateCategory=null,partnersPaused=false,editedBrief={en:null,zh:null};
-  try {const saved=localStorage.getItem('bryan-language');if(saved==='zh'||saved==='en')lang=saved;const savedRegion=localStorage.getItem('bryan-region');if(config.regions[savedRegion])region=savedRegion;}catch{}
-  const requestedRegion=new URLSearchParams(location.search).get('region');if(config.regions[requestedRegion])region=requestedRegion;
-  const requestedLang=new URLSearchParams(location.search).get('lang');if(requestedLang==='en'||requestedLang==='zh')lang=requestedLang;
+  const requestedLocale=new URLSearchParams(location.search);
+  const requestedRegion=requestedLocale.get('region');if(config.regions[requestedRegion])region=requestedRegion;
+  const requestedLang=requestedLocale.get('lang');if(requestedLang==='en'||requestedLang==='zh')lang=requestedLang;
   const $=s=>document.querySelector(s);
   const contact=()=>config.regions[region];
   const t=key=>contact().copy?.[lang]?.[key]??copy[lang][key]??key;
   const el=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x;};
   const uiButton=(label,cls,fn)=>{const x=el('button',cls,label);x.type='button';x.addEventListener('click',fn);return x;};
+  function applyLocale(url,regionValue,languageValue){
+    if(regionValue==='my')url.searchParams.delete('region');else url.searchParams.set('region',regionValue);
+    if(languageValue==='en')url.searchParams.delete('lang');else url.searchParams.set('lang',languageValue);
+    return url;
+  }
+  function pageHref(href){
+    const target=applyLocale(new URL(href,location.href),region,lang),filename=target.pathname.split('/').pop();
+    return (!filename||filename==='index.html'?'./':filename)+target.search+target.hash;
+  }
   function decorateIcons(root=document.body){
     const nodes=[],walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
     while(walker.nextNode()){const n=walker.currentNode;if(!n.parentElement.closest('script,style,textarea,svg')&&/[↗↘↶→←↑↳✳▶]/.test(n.textContent))nodes.push(n);}
@@ -40,13 +49,10 @@
     document.querySelectorAll('.top-social-button').forEach(x=>x.title=x.getAttribute('aria-label'));
     document.querySelectorAll('[data-lang]').forEach(x=>{const active=x.dataset.lang===lang;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active));});
     $('#menu-button').setAttribute('aria-label',t($('#main-nav').classList.contains('open')?'menuClose':'menuOpen'));
-    try{localStorage.setItem('bryan-language',lang);}catch{}
     renderFilms();renderQuiz();renderSocialLinks();renderFollowers();renderRateDialog();renderPartners();renderReviews();setupContacts();setupRegionalLinks();setupPageNavigation();decorateIcons();
   }
   function changeRegion(value){
     if(!config.regions[value])return;region=value;
-    try{localStorage.setItem('bryan-region',region);}catch{}
-    const url=new URL(location.href);url.searchParams.set('region',region);history.replaceState(null,'',url);
     changeLanguage(lang);
   }
   function renderFilms(){
@@ -144,12 +150,13 @@
     if($('#all-films-link'))$('#all-films-link').href=contact().workUrl;if($('#follow-journey-link'))$('#follow-journey-link').href=contact().followUrl;
   }
   function setupPageNavigation(){
-    const url=new URL(location.href);url.searchParams.set('region',region);url.searchParams.set('lang',lang);history.replaceState(null,'',url);
+    const url=applyLocale(new URL(location.href),region,lang);
+    if(url.pathname.endsWith('/index.html'))url.pathname=url.pathname.slice(0,-'index.html'.length);
+    history.replaceState(null,'',url);
     document.querySelectorAll('a[href]').forEach(a=>{
       const href=a.getAttribute('href');
-      if(!href||href.startsWith('#')||!/^\w[\w-]*\.html(?:[?#]|$)/.test(href))return;
-      const target=new URL(href,location.href);target.searchParams.set('region',region);target.searchParams.set('lang',lang);
-      a.setAttribute('href',target.pathname.split('/').pop()+target.search+target.hash);
+      if(!href||!/^(?:[\w-]+\.html|\.\/)(?:[?#]|$)/.test(href))return;
+      a.setAttribute('href',pageHref(href));
     });
     const page=document.body.dataset.page;
     document.querySelectorAll('[data-nav]').forEach(a=>{
@@ -284,7 +291,7 @@
     const title=el('h3','result-title',result.title);title.tabIndex=-1;
     content.append(el('p','result-badge',t('resultKicker')),title,el('p','result-copy',result.body));
     const solutionPath={documentary:'documentary.html',longform:'explainers.html',shortform:'social.html'}[recommendation()];
-    if(solutionPath){const solution=el('a','text-link result-solution',t('resultSolution')+' ↗');solution.href=solutionPath+'?region='+region+'&lang='+lang;content.append(solution);}
+    if(solutionPath){const solution=el('a','text-link result-solution',t('resultSolution')+' ↗');solution.href=pageHref(solutionPath);content.append(solution);}
     const list=el('ul','result-list');result.items.forEach(item=>list.append(el('li','',item)));content.append(list);
     let extra=result.extra;
     if(answers.channel==='website'||answers.channel==='social')extra+=' '+t('ownChannel');
