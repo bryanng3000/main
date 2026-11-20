@@ -494,7 +494,7 @@ window.BRYAN_COPY = {
     "ownChannel": "For your own channels, we can discuss a production-only scope and usage rights.",
     "myChannel": "Since you want publication on my channels, we should discuss audience fit and publication arrangements.",
     "bothChannels": "We can explore a main film, shorter edits and a clearly agreed publication plan.",
-    "brandName": "Casebook",
+    "brandName": "Casebook Films",
     "brandFullName": "Casebook Films",
     "creatorLabel": "by Bryan Ng",
     "emailLabel": "Email",
