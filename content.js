@@ -181,12 +181,12 @@ window.BRYAN_CONFIG = {
   ],
   "testimonials": [
     {
-      "name": "test1",
-      "roleEn": "Company / role to follow",
-      "roleZh": "公司／职位待补充",
-      "quoteEn": "Client feedback will appear here.",
-      "quoteZh": "客户评价内容待补充。",
-      "placeholder": true,
+      "name": "Janice Chew",
+      "roleEn": "Lawyer",
+      "roleZh": "律师",
+      "quoteEn": "It was a pleasure being part of Bryan's interview. I truly enjoyed the conversation and had a wonderful time sharing experiences and exchanging perspectives with him. Thank you Bryan for the invitation and for making the entire experience so enjoyable. Hope to see more of your amazing work!",
+      "quoteZh": "很高兴接受 Bryan 的采访。我很享受这次交流，也很开心能和他分享经历、交换看法。谢谢 Bryan 的邀请，也谢谢他让整个过程如此愉快。期待看到你更多精彩的作品！",
+      "placeholder": false,
       "category": "documentary"
     },
     {
@@ -211,7 +211,7 @@ window.BRYAN_CONFIG = {
   "totalFollowers": "36K+",
   "regions": {
     "my": {
-      "email": "bryanng.media@gmail.com",
+      "email": "bryanng3000@yahoo.com",
       "whatsapp": "60129580017",
       "whatsappDisplay": "+60 12-958 0017",
       "copy": {
@@ -506,9 +506,9 @@ window.BRYAN_COPY = {
     "partnersPlaceholder": "Brand placeholders · names and logos to follow",
     "brandLogoPending": "Logo to follow",
     "brandPlaceholder": "Brand placeholder",
-    "reviewsKicker": "Client feedback",
-    "reviewsTitle": "Client feedback",
-    "reviewsIntro": "Feedback about the process, communication and finished work.",
+    "reviewsKicker": "Feedback",
+    "reviewsTitle": "Working with Bryan",
+    "reviewsIntro": "Experiences shared by interviewees and collaborators.",
     "reviewsPlaceholder": "Sample layout · these are not real client testimonials",
     "reviewPlaceholder": "Sample",
     "igItem1": "Instagram Reels & Stories",
@@ -791,9 +791,9 @@ window.BRYAN_COPY = {
     "partnersPlaceholder": "品牌展示占位 · 名称与 Logo 待补充",
     "brandLogoPending": "Logo 待补充",
     "brandPlaceholder": "品牌待补充",
-    "reviewsKicker": "客户反馈",
+    "reviewsKicker": "合作反馈",
     "reviewsTitle": "合作反馈",
-    "reviewsIntro": "客户对沟通、拍摄过程和最终视频的评价。",
+    "reviewsIntro": "受访者与合作伙伴分享的沟通和拍摄体验。",
     "reviewsPlaceholder": "以下为栏目示例，暂未填入真实客户评价。",
     "reviewPlaceholder": "示例",
     "igItem1": "Reels 短视频与 Stories 限时动态",

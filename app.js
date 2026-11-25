@@ -202,9 +202,10 @@
   }
   function renderReviews(){
     const grid=$('#review-grid');if(!grid)return;grid.replaceChildren();
-    $('#reviews-placeholder-note').hidden=!config.testimonials.some(x=>x.placeholder);
     const category=$('#reviews')?.dataset.reviewCategory;
-    config.testimonials.filter(review=>!category||review.category===category).forEach(review=>{
+    const reviews=config.testimonials.filter(review=>!category||review.category===category);
+    $('#reviews-placeholder-note').hidden=!reviews.some(review=>review.placeholder);
+    reviews.forEach(review=>{
       const card=el('article','review-card');
       if(review.placeholder)card.append(el('span','sample-badge',t('reviewPlaceholder')));
       const quote=el('blockquote','review-quote',lang==='zh'?review.quoteZh:review.quoteEn);
